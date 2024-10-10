@@ -1,0 +1,25 @@
+
+const theme = localStorage.getItem('theme');
+if(theme){
+    document.body.setAttribute('data-theme', theme);
+}
+else{
+    localStorage.setItem('theme','dark');
+}
+
+function changeTheme(){
+    const sunIcon = document.getElementById('sun_icon');
+    const moonIcon = document.getElementById('moon_icon');
+    const theme = document.body.getAttribute('data-theme');
+
+    document.body.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
+
+    if(theme === 'dark'){
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none'
+    }
+    else{
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block'
+    }
+}
